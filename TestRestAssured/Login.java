@@ -6,15 +6,13 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-
 import org.testng.annotations.Test;
 import java.util.HashMap;
-
 import static io.restassured.RestAssured.*;
 
 public class Login    {
 
-   private  APIToken obj = new APIToken();
+    private  APIToken obj = new APIToken();
 
     private static String tokenId;
 
@@ -176,13 +174,13 @@ public class Login    {
         System.out.println(tokenId);
         Response res =
                 given()
-                .headers("Authorization","Bearer " + tokenId)
-                .when()
-                .get("https://portal.bigmofxcrm.com:8087/api/app/usersList?pageNumber=1&pageSize=10&searchParam=")
-                .then()
+                        .headers("Authorization","Bearer " + tokenId)
+                        .when()
+                        .get("https://portal.bigmofxcrm.com:8087/api/app/usersList?pageNumber=1&pageSize=10&searchParam=")
+                        .then()
                         .contentType("application/json")
-                .log().body()
-                .extract().response();
+                        .log().body()
+                        .extract().response();
         Assert.assertEquals(res.getStatusCode(), 200);
 
     }
@@ -250,7 +248,7 @@ public class Login    {
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
-//    @Test(priority = 15)
+    //    @Test(priority = 15)
 //    public void IbUser() {
 //        System.out.println(tokenId);
 //        Response response =
@@ -280,7 +278,7 @@ public class Login    {
         response.then().log().all();
         Assert.assertEquals(response.statusCode(), 200);
     }
-//    @Test(priority = 17)
+    //    @Test(priority = 17)
 //    public void PaymentUserSide() {
 //        HashMap data = new HashMap();
 //        data.put("FormFile", "binary");
